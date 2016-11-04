@@ -36,9 +36,7 @@ class ParseClient: NSObject {
         let method = Methods.fetchStudents
         var parameters = [String : AnyObject]()
         parameters["limit"] = forNumberOfStudents as AnyObject
-        if let pagesToSkip = pagesToSkip {
-            parameters["skip"] = pagesToSkip as AnyObject
-        }
+        parameters["skip"] = pagesToSkip as AnyObject
         
         parameters["order"] = (inAscending) ? "updatedAt" as AnyObject : "-updatedAt" as AnyObject
         
