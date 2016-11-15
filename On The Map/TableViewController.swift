@@ -42,7 +42,7 @@ class TableViewController: NavBarViewController, UITableViewDelegate, UITableVie
     
     override func viewWillAppear(_ animated: Bool) {
         
-        oParseClient.fetchStudentsData(forNumberOfStudents: 4, inAscending: false, pagesToSkip: nil){(data, success, error) in
+        oParseClient.fetchStudentsData(forNumberOfStudents: 100, inAscending: false, pagesToSkip: 0){(data, success, error) in
             if success {
                 if let data = data?["results"] as? [[String:AnyObject]]{
                     self.studentData = Students.studentsFromResults(results: data)

@@ -10,7 +10,7 @@
         <!--Login View Controller-->
         <scene sceneID="bRM-rQ-xW2">
             <objects>
-                <viewController id="hqZ-Yc-axV" customClass="LoginViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="hqZ-Yc-axV" customClass="LoginViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WCQ-Gz-BMK"/>
                         <viewControllerLayoutGuide type="bottom" id="NKT-8j-iOE"/>
@@ -121,6 +121,16 @@
                                                 <action selector="updateUserInfoButtonIsClicked" destination="oF2-Jg-L2x" id="4k3-pb-kN5"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="aBR-tg-rDI">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2CX-iM-eHP">
+                                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Logout"/>
+                                                <connections>
+                                                    <action selector="logoutButtonIsClicked" destination="oF2-Jg-L2x" eventType="touchUpInside" id="sWz-7B-SUT"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -139,6 +149,7 @@
                     <tabBarItem key="tabBarItem" title="List" image="list" id="HpJ-g7-9JY"/>
                     <connections>
                         <outlet property="navBar" destination="35c-ng-cc2" id="1sz-oF-KYr"/>
+                        <outlet property="rightButton" destination="2CX-iM-eHP" id="5pc-Mc-nvx"/>
                         <outlet property="tableView" destination="67B-X2-KXb" id="osM-Kp-3MF"/>
                         <segue destination="LcC-Zw-kwH" kind="show" identifier="updateLocation" id="CjB-xq-eJW"/>
                     </connections>
@@ -173,6 +184,16 @@
                                                 <action selector="updateUserInfoButtonIsClicked" destination="uMX-im-SCa" id="kHy-ff-eNr"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="uAd-jC-nV7">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SMY-xQ-K7d">
+                                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Logout"/>
+                                                <connections>
+                                                    <action selector="logoutButtonIsClicked" destination="uMX-im-SCa" eventType="touchUpInside" id="iqV-yp-jwf"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -193,6 +214,7 @@
                         <outlet property="leftButton" destination="IFn-nb-U21" id="p4O-Q8-Rqd"/>
                         <outlet property="mapView" destination="1VP-4c-k4j" id="1Lk-uy-twk"/>
                         <outlet property="navBar" destination="Z1p-Yu-r8J" id="pYO-Au-dio"/>
+                        <outlet property="rightButton" destination="SMY-xQ-K7d" id="zQi-mq-S1T"/>
                         <segue destination="LcC-Zw-kwH" kind="show" identifier="updateLocation" id="taN-ZG-9qI"/>
                     </connections>
                 </viewController>
@@ -330,7 +352,7 @@
         <image name="map" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LsZ-qM-lT2"/>
+        <segue reference="BVW-Sg-6Pn"/>
         <segue reference="CjB-xq-eJW"/>
     </inferredMetricsTieBreakers>
 </document>

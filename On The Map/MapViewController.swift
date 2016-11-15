@@ -54,7 +54,7 @@ class MapViewController: NavBarViewController, MKMapViewDelegate {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        oParseClient.fetchStudentsData(forNumberOfStudents: 4, inAscending: false, pagesToSkip: nil){ (data, success, error) in
+        oParseClient.fetchStudentsData(forNumberOfStudents: 100, inAscending: false, pagesToSkip: 0){ (data, success, error) in
             if success {
                 if let data = data?["results"] as? [[String:AnyObject]]{
                     self.studentData = Students.studentsFromResults(results: data)
@@ -68,13 +68,16 @@ class MapViewController: NavBarViewController, MKMapViewDelegate {
                         let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
                         let first = dictionary.firstName!
                         let last = dictionary.lastName!
-                        let mediaURL = dictionary.mediaURL!
+                        let mediaURL = dictionary.mediaURL
                         
                         // Here we create the annotation and set its coordiate, title, and subtitle properties
                         let annotation = MKPointAnnotation()
                         annotation.coordinate = coordinate
                         annotation.title = "\(first) \(last)"
-                        annotation.subtitle = mediaURL
+                        if let mediaURL = mediaURL {
+                            annotation.subtitle = mediaURL
+                        }
+                        
                         
                         // Finally we place the annotation in an array of annotations.
                         self.annotations.append(annotation)
