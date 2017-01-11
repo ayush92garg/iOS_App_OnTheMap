@@ -16,10 +16,6 @@ class ParseClient: NSObject {
     let scheme = Constants.ApiScheme
     let name = Constants.ApiName
     
-    override init() {
-        super.init()
-    }
-    
     func fetchStudentsData(forNumberOfStudents: Int, inAscending: Bool, pagesToSkip :Int?, onCompletionOfFetch:@escaping (_ result : AnyObject?, _ success: Bool, _ error: NSError?) -> Void) {
         func sendError(error: String) {
             let errorInfo = [NSLocalizedDescriptionKey : error]
@@ -74,8 +70,17 @@ class ParseClient: NSObject {
     
 
     func updateStudentsData(completion: @escaping (_ result: AnyObject?,_ success: Bool, _ error: NSError?) -> Void ){
+        let data : [String: String] = [
+            UpdateStudent.uniqueKey : User.uniqueKey,
+            UpdateStudent.firstName : "Ayush",
+            UpdateStudent.lastName : "Garg",
+            UpdateStudent.mapString : LocationDetails.locationString,
+            UpdateStudent.latitude : String(LocationDetails.latitude ?? 0),
+            UpdateStudent.longitude : String(LocationDetails.longitude ?? 0)
+        ];
+
         let method = Methods.updateStudent
-        let jsonString = "{\"uniqueKey\": \"\(User.uniqueKey)\", \"firstName\": \"Ayush\", \"lastName\": \"Garg\",\"mapString\": \"\(LocationDetails.locationString)\", \"mediaURL\": \"\(LocationDetails.mediaUrl)\",\"latitude\": \(LocationDetails.latitude!), \"longitude\": \(LocationDetails.longitude!)}"
+        let jsonString = DataHelper.getJSONString(FromJSONObject: data as AnyObject);
         _ = oNetMod.putMethodTask(apiName: name, apiScheme: scheme, apiHost: host, apiMethod: method, query_params: nil, jsonBody: jsonString){(result, error) in
             if let error = error {
                 completion(nil, false, error)

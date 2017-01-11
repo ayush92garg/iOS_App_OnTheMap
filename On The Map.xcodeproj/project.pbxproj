@@ -22,6 +22,11 @@
 		A8923C801DC21F3100AFED2B /* Students.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8923C7F1DC21F3100AFED2B /* Students.swift */; };
 		A8923C821DC2B9CB00AFED2B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8923C811DC2B9CB00AFED2B /* MapViewController.swift */; };
 		A892912A1DC7F2060001E0A6 /* UpdateLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89291291DC7F2060001E0A6 /* UpdateLocationViewController.swift */; };
+		A8E0F36A1E2225CA003381F1 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E0F3691E2225CA003381F1 /* DataHelper.swift */; };
+		A8E0F36C1E222D79003381F1 /* StudentListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E0F36B1E222D79003381F1 /* StudentListTableViewController.swift */; };
+		A8E0F36E1E222EDB003381F1 /* OnTheMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E0F36D1E222EDB003381F1 /* OnTheMapViewController.swift */; };
+		A8E0F3701E2230A6003381F1 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E0F36F1E2230A6003381F1 /* UIViewControllerExtension.swift */; };
+		A8E0F3741E227EA9003381F1 /* OnTheMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8E0F3731E227EA9003381F1 /* OnTheMap.storyboard */; };
 		A8E7E6DA1DBF7CCA00C77977 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E7E6D91DBF7CCA00C77977 /* LoginViewController.swift */; };
 		A8E7E6E51DC0066200C77977 /* NetworkingModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E7E6E41DC0066200C77977 /* NetworkingModule.swift */; };
 		A8E7E6E91DC006C000C77977 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E7E6E81DC006C000C77977 /* UdacityClient.swift */; };
@@ -69,6 +74,11 @@
 		A8923C7F1DC21F3100AFED2B /* Students.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Students.swift; sourceTree = "<group>"; };
 		A8923C811DC2B9CB00AFED2B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A89291291DC7F2060001E0A6 /* UpdateLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateLocationViewController.swift; sourceTree = "<group>"; };
+		A8E0F3691E2225CA003381F1 /* DataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
+		A8E0F36B1E222D79003381F1 /* StudentListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentListTableViewController.swift; sourceTree = "<group>"; };
+		A8E0F36D1E222EDB003381F1 /* OnTheMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnTheMapViewController.swift; sourceTree = "<group>"; };
+		A8E0F36F1E2230A6003381F1 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		A8E0F3731E227EA9003381F1 /* OnTheMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OnTheMap.storyboard; sourceTree = "<group>"; };
 		A8E7E6D91DBF7CCA00C77977 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
 		A8E7E6E41DC0066200C77977 /* NetworkingModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingModule.swift; sourceTree = "<group>"; };
 		A8E7E6E81DC006C000C77977 /* UdacityClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
@@ -106,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				A84831D01DC56A4600D6DAD2 /* Main.storyboard */,
+				A8E0F3731E227EA9003381F1 /* OnTheMap.storyboard */,
 				A8E7E6EE1DC0306800C77977 /* GCDBlackBox.swift */,
 				A862EBCB1DBECDAF00FEA822 /* On The Map */,
 				A862EBE01DBECDAF00FEA822 /* On The MapTests */,
@@ -127,6 +138,7 @@
 		A862EBCB1DBECDAF00FEA822 /* On The Map */ = {
 			isa = PBXGroup;
 			children = (
+				A8E0F3691E2225CA003381F1 /* DataHelper.swift */,
 				A8E7E6DD1DBFD64C00C77977 /* Controller */,
 				A8E7E6DC1DBFD64300C77977 /* View */,
 				A8E7E6DB1DBFD63600C77977 /* Modal */,
@@ -187,12 +199,15 @@
 		A8E7E6DD1DBFD64C00C77977 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A89291291DC7F2060001E0A6 /* UpdateLocationViewController.swift */,
 				A8E7E6D91DBF7CCA00C77977 /* LoginViewController.swift */,
 				A84831CC1DC53D8600D6DAD2 /* NavBarViewController.swift */,
+				A8E0F36D1E222EDB003381F1 /* OnTheMapViewController.swift */,
+				A8E0F36F1E2230A6003381F1 /* UIViewControllerExtension.swift */,
+				A89291291DC7F2060001E0A6 /* UpdateLocationViewController.swift */,
 				A8923C7F1DC21F3100AFED2B /* Students.swift */,
 				A84831CE1DC55A0100D6DAD2 /* User.swift */,
 				A8923C741DC128F700AFED2B /* TableViewController.swift */,
+				A8E0F36B1E222D79003381F1 /* StudentListTableViewController.swift */,
 				A8923C811DC2B9CB00AFED2B /* MapViewController.swift */,
 			);
 			name = Controller;
@@ -327,6 +342,7 @@
 			files = (
 				A84831D21DC56A4600D6DAD2 /* Main.storyboard in Resources */,
 				A862EBD71DBECDAF00FEA822 /* LaunchScreen.storyboard in Resources */,
+				A8E0F3741E227EA9003381F1 /* OnTheMap.storyboard in Resources */,
 				A862EBD41DBECDAF00FEA822 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,14 +374,18 @@
 				A8E7E6E51DC0066200C77977 /* NetworkingModule.swift in Sources */,
 				A8923C801DC21F3100AFED2B /* Students.swift in Sources */,
 				A8923C7A1DC12F4F00AFED2B /* ParseConstants.swift in Sources */,
+				A8E0F36E1E222EDB003381F1 /* OnTheMapViewController.swift in Sources */,
 				A8923C7E1DC1665C00AFED2B /* ApiSpecificConf.swift in Sources */,
 				A8923C821DC2B9CB00AFED2B /* MapViewController.swift in Sources */,
 				A892912A1DC7F2060001E0A6 /* UpdateLocationViewController.swift in Sources */,
 				A84831CF1DC55A0100D6DAD2 /* User.swift in Sources */,
 				A8E7E6DA1DBF7CCA00C77977 /* LoginViewController.swift in Sources */,
+				A8E0F3701E2230A6003381F1 /* UIViewControllerExtension.swift in Sources */,
 				A8923C751DC128F700AFED2B /* TableViewController.swift in Sources */,
+				A8E0F36A1E2225CA003381F1 /* DataHelper.swift in Sources */,
 				A8E7E6EB1DC006D100C77977 /* FacebookClient.swift in Sources */,
 				A862EBCD1DBECDAF00FEA822 /* AppDelegate.swift in Sources */,
+				A8E0F36C1E222D79003381F1 /* StudentListTableViewController.swift in Sources */,
 				A8E7E6ED1DC00FA900C77977 /* UdacityConstants.swift in Sources */,
 				A8E7E6EF1DC0306800C77977 /* GCDBlackBox.swift in Sources */,
 			);

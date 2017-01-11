@@ -9,82 +9,81 @@
 import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
-    @IBOutlet weak var loginNameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var loginUserNameTextField: UITextField!
+    @IBOutlet weak var loginPasswordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    @IBOutlet weak var labelTop: NSLayoutConstraint!
-    @IBOutlet weak var loginTextTop: NSLayoutConstraint!
-    @IBOutlet weak var passwordTop: NSLayoutConstraint!
-    var email: String? = nil
-    var password: String? = nil
-    
+    var loading: Bool = false {
+        didSet {
+            DispatchQueue.main.async {
+                self.loginButton.isEnabled = !self.loading;
+                self.activityIndicator.isHidden = !self.loading;
+                if self.loading {
+                    self.activityIndicator.startAnimating();
+                } else {
+                    self.activityIndicator.stopAnimating();
+                }
+            }
+        }
+    }
     
     @IBAction func loginButtonClicked(_ sender: AnyObject) {
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
+        guard let email = loginUserNameTextField.text, email.characters.count > 0 else {
+            showErrorAlert("Email should not be blank");
+            return;
+        }
+        guard let password = loginPasswordTextField.text, password.characters.count > 0 else {
+            showErrorAlert("Password should not be blank");
+            return;
+        }
         
-        email = loginNameTextField.text!
-        password = passwordTextField.text!
-        
+        login(email, password);
+    }
+    
+    func login(_ email: String, _ password: String) {
+        loading = true;
         UdacityClient.sharedInstance().loginToUdacity(username: email, password: password){
             (result, success, error) in
+            self.loading = false;
             if success {
+                print(result);
                 if let account_details = result?["account"] as? [String:AnyObject] {
                     let key = account_details["key"]!
                     User.uniqueKey = key as! String
-                    User.email = self.email!
-                    self.login()
+                    User.email = email
+                    self.loginSuccess()
                 }else{
-                    self.activityIndicator.stopAnimating()
-                    self.updateErrorLabel(errorString: "Unable to Login")
+                    self.showErrorAlert("Unable to login");
                 }
             }else {
-                self.activityIndicator.stopAnimating()
-                self.passwordTextField.text = ""
-                self.updateErrorLabel(errorString: "Invalid User Name/ Password")
+                self.loginError(error)
             }
         }
     }
 
-    func updateErrorLabel(errorString: String) {
-            if self.errorLabel.isHidden {
-                self.errorLabel.isHidden = false
-            }
-            self.errorLabel.text = errorString
-    }
-    
-    private func login(){
-        performUIUpdatesOnMain {
-            self.performSegue(withIdentifier: "loginHomeSegue", sender: self)
+    func loginError(_ error: NSError?) -> Void {
+        DispatchQueue.main.async {
+            self.loginPasswordTextField.text = ""
+            let message = error?.localizedDescription ?? "Unable to login";
+            self.showErrorAlert(message)
         }
-        
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        loginButton.isHidden = true
-        loginNameTextField.delegate = self
-        passwordTextField.delegate = self
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        errorLabel.text = ""
-        activityIndicator.isHidden = true
+
+    private func loginSuccess(){
+        performUIUpdatesOnMain {
+            UIApplication.shared.keyWindow?.rootViewController = OnTheMapViewController();
+        }
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == loginNameTextField {
-            passwordTextField.becomeFirstResponder()
-        }
-        if textField == passwordTextField {
+        if textField == loginUserNameTextField {
+            loginPasswordTextField.becomeFirstResponder()
+        } else if textField == loginPasswordTextField {
             textField.resignFirstResponder()
             loginButton.sendActions(for: .touchUpInside)
         }
-
         return true
     }
 }

@@ -10,6 +10,8 @@ import UIKit
 
 class NavBarViewController: UIViewController, UINavigationBarDelegate {
     
+    var studentData: [Students] = [Students]();
+    
     override func viewDidLoad() {
         navBar.topItem?.title = "On the Map"
     }
@@ -47,11 +49,13 @@ class NavBarViewController: UIViewController, UINavigationBarDelegate {
             }
             let range = 5...Int((data?.count)!)
             let newData = data?.subdata(in: Range(range))
+            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
 //            print(NSString(data: newData!, encoding: String.Encoding.utf8.rawValue))
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! UIViewController
-            self.present(controller, animated: true, completion: nil)
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! UIViewController
+//            self.present(controller, animated: true, completion: nil)
         }
         task.resume()
     }

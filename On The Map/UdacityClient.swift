@@ -53,7 +53,7 @@ class UdacityClient : NSObject{
             if result != nil {
                 completionOnLogin(result, true, nil)
             }else{
-                sendError(error: "Unable to login")
+                sendError(error: "Invalid user name/ password")
             }
         }
     }
@@ -63,5 +63,28 @@ class UdacityClient : NSObject{
             static var sharedInstance = UdacityClient()
         }
         return Singleton.sharedInstance
+    }
+    
+    func logout(_ viewController: OnTheMapViewController) {
+        viewController.view.isUserInteractionEnabled = false;
+        let request = NSMutableURLRequest(url: NSURL(string: "https://www.udacity.com/api/session")! as URL)
+        request.httpMethod = "DELETE"
+        var xsrfCookie: HTTPCookie? = nil
+        let sharedCookieStorage = HTTPCookieStorage.shared
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        let session = URLSession.shared
+        let task = session.dataTask(with: request as URLRequest) { data, response, error in
+            if let error = error {
+                viewController.logoutFailed(error);
+            } else {
+                viewController.logoutSuccess();
+            }
+        }
+        task.resume()
     }
 }

@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bM-XV-puC">
-                                <frame key="frameInset" minX="76" minY="416" height="37"/>
+                                <frame key="frameInset" minX="64" minY="416" width="247" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Login"/>
@@ -116,20 +116,20 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35c-ng-cc2">
                                 <items>
                                     <navigationItem title="Title" id="yaL-yU-AOb">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="uUr-6F-Oj6">
-                                            <connections>
-                                                <action selector="updateUserInfoButtonIsClicked" destination="oF2-Jg-L2x" id="4k3-pb-kN5"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="aBR-tg-rDI">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="aBR-tg-rDI">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2CX-iM-eHP">
-                                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                                <rect key="frame" x="16" y="7" width="83" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Logout"/>
                                                 <connections>
                                                     <action selector="logoutButtonIsClicked" destination="oF2-Jg-L2x" eventType="touchUpInside" id="sWz-7B-SUT"/>
                                                 </connections>
                                             </button>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="uUr-6F-Oj6">
+                                            <connections>
+                                                <action selector="updateUserInfoButtonIsClicked" destination="oF2-Jg-L2x" id="4k3-pb-kN5"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -179,20 +179,20 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z1p-Yu-r8J">
                                 <items>
                                     <navigationItem title="Title" id="1q6-uW-S3I">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="IFn-nb-U21">
-                                            <connections>
-                                                <action selector="updateUserInfoButtonIsClicked" destination="uMX-im-SCa" id="kHy-ff-eNr"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="uAd-jC-nV7">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="uAd-jC-nV7">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SMY-xQ-K7d">
-                                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                                <rect key="frame" x="16" y="7" width="83" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Logout"/>
                                                 <connections>
                                                     <action selector="logoutButtonIsClicked" destination="uMX-im-SCa" eventType="touchUpInside" id="iqV-yp-jwf"/>
                                                 </connections>
                                             </button>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IFn-nb-U21">
+                                            <connections>
+                                                <action selector="updateUserInfoButtonIsClicked" destination="uMX-im-SCa" id="kHy-ff-eNr"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>

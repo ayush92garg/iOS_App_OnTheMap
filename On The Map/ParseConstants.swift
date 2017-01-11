@@ -40,4 +40,12 @@ extension ParseClient {
         static let updatedAt = "updatedAt"
     }
     
+    struct UpdateStudent {
+        static let uniqueKey = "uniqueKey"
+        static let firstName = "firstName"
+        static let lastName = "lastName"
+        static let mapString = "mapString"
+        static let latitude = "latitude"
+        static let longitude = "longitude"
+    }
 }
